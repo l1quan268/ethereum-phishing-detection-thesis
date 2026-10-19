@@ -1,0 +1,51 @@
+# ==============================================================================
+# GITIGNORE: Phishing Contract Detection under Incomplete Labels & Temporal Shifts
+# ==============================================================================
+
+# Environment & Secret keys (CRITICAL: Do NOT commit)
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# API Cache (Raw JSON responses from Etherscan/Alchemy)
+data/cache/
+
+# Large datasets (Full scale downloads)
+data/full/
+
+# Raw SIGMETRICS 2025 dataset (Do NOT redistribute publicly without license; download from upstream)
+data/raw/
+
+# Logs & Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+*.log
+
+# IDE & Editor artifacts
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Testing & Notebook checkpoints
+.pytest_cache/
+.ipynb_checkpoints/
