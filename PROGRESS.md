@@ -1,8 +1,9 @@
+<!-- File: PROGRESS.md -->
 # Tiến Độ Dự Án Khóa Luận Tốt Nghiệp
 
 > **Đề tài:** Learning Unified Graph Representations for Ethereum Phishing Detection under Incomplete Labels and Temporal Shifts  
-> **Cập nhật ngày:** 2026-10-16  
-> **Trạng thái tổng thể:** Đã hoàn thành Pilot 10 Positive + 10 Unlabeled (PU-Learning), Lọc Point-in-Time Cutoff 7 ngày, Xuất tập dữ liệu 20 địa chỉ & Bộ kiểm thử toàn vẹn tự động (6/6 PASSED).
+> **Cập nhật ngày:** 2026-10-24  
+> **Trạng thái tổng thể:** Hoàn thành Pilot 20 (cấp hợp đồng) cho View 1 và View 2. View 2 cấp hợp đồng kích hoạt tiêu chí dừng (chuỗi positive quá ngắn), nên đang chuyển sang **cấp tài khoản** theo đề cương với nhãn **DaaS dataset (IMC 2025)**: đã thu lịch sử giao dịch và `evidence_time` cho 6.141 tài khoản positive. Đang chờ chốt t\*, mốc chia thời gian và cách lấy mẫu U.
 
 ---
 
@@ -20,7 +21,11 @@
 | **8** | **Chuẩn hóa cấu trúc dự án & Tổ chức workspace ML** | ✅ Hoàn thành | Tái cấu trúc workspace phân tầng: `data/raw`, `data/cache`, `data/pilot/positive`, `data/pilot/unlabeled`, `data/pilot/combined`, `data/processed/view1..3`, `src/`, `configs/`, `reports/`, `docs/`, `experiments/`, `tests/`. Di chuyển an toàn 14 file với xác thực SHA-256 100% qua `reports/migration_manifest.json`. Thiết lập `.gitignore`. |
 | **9** | **Thu thập 10 Unlabeled & Lọc Point-in-Time 20 Địa Chỉ** | ✅ Hoàn thành | Thực hiện Matched Block Sampling trong phạm vi $\pm 14$ blocks từ Creation Block của 10 Positive. Lọc bỏ 100% địa chỉ phishing. Thu thập 5.209 giao dịch Unlabeled. Áp dụng $T_{\text{cutoff}} = T_{\text{creation}} + 7\text{ ngày}$. Loại bỏ 2.260 giao dịch tương lai, giữ lại 2.965 giao dịch sạch không rò rỉ thời gian. Xuất `pilot_20_quality_report.md`. |
 | **10** | **Trích xuất View 1 (Statistical Features - Pilot 20)** | ✅ Hoàn thành | Đã xây dựng `src/build_view1.py`, trích xuất 32 đặc trưng thống kê cho 20 hợp đồng, phân tách metadata và bảng kiểm toán 4 giao dịch tiền triển khai. Đạt 9/9 unit tests (`tests/test_view1.py`). Xuất `docs/view1_feature_spec.md` và `reports/pilot/view1_data_quality.md`. |
-| **11** | **Mở rộng quy mô lên 400 địa chỉ & Xây dựng mô hình GNN** | ⏸️ Chờ phê duyệt | Sẵn sàng mở rộng sau khi nghiệm thu kết quả pilot View 1 và phương pháp luận. |
+| **11** | **Mở rộng quy mô lên 400 địa chỉ & Xây dựng mô hình GNN** | ⏸️ Thay thế | Không mở rộng ở cấp hợp đồng nữa (xem mốc 12–14); quy mô mới là 6.141 tài khoản P từ DaaS. |
+| **12** | **Pipeline View 2 (Temporal Sequences) – Pilot 20, cấp hợp đồng** | ✅ Hoàn thành | Viết `src/view2/` (client Etherscan cache theo tham số, `collect_events.py`, `build_sequences.py`, `adapt_pilot.py`, `check_client.py`); 12/12 tests (`tests/test_view2_pipeline.py`). Thu lại bằng API: 20/20 `ok`, 4.648 sự kiện (normal 667, internal 1.618, erc20 2.363), đủ `transactionIndex`. Cửa sổ `obs_start = min(T_creation, giao dịch đầu)` giữ được giao dịch nạn nhân trước triển khai ở 4/10 P. **Tiêu chí dừng bị kích hoạt:** chuỗi P trung vị 1, tối đa 2. |
+| **13** | **Khảo sát dataset & chọn nguồn nhãn cấp tài khoản** | ✅ Hoàn thành | Đọc toàn văn bài DaaS (IMC 2025); kiểm tra PTXPhish, MetaMask, Etherscan labels, BigQuery. Chọn **DaaS** làm nhãn P chính (56 operator + 6.087 affiliate; tác giả kiểm tra thủ công 44,8% giao dịch, không thấy dương tính giả). SIGMETRICS dùng để giải thích lý do chuyển cấp, kiểm chứng suy nhãn, mở rộng P (tùy chọn) và loại nạn nhân. Chồng lấn: 1.209/1.910 profit-sharing contract nằm trong SIGMETRICS. Pilot: 6/6 địa chỉ suy ra từ dòng tiền khớp vai trò DaaS. |
+| **14** | **Thu dữ liệu 6.141 tài khoản DaaS & `evidence_time`** | ✅ Hoàn thành | Thời điểm tạo 1.910 profit-sharing contract: 07/02/2023 – 01/04/2025. Phân loại 6.143 tài khoản: 6.141 EOA (210 có mã EIP-7702), 2 hợp đồng. `src/daas/collect_account_events.py`: 6.141/6.141 tìm được `evidence_time` (internal 3.146, erc20 2.985, normal 10); trung vị 55 sự kiện/tài khoản; 68% ví bắt đầu hoạt động dưới 1 ngày trước lần nhận tiền chia đầu; 52,5% không có giao dịch nào trước `evidence_time`. Tổng 19.101 lượt gọi API. |
+| **15** | **Chốt thiết kế benchmark cấp tài khoản** | ⏸️ Chờ quyết định | t\* (đề xuất: `evidence_time` + 1 ngày, kèm ablation bỏ giao dịch chia lợi nhuận); T1/T2 (đề xuất: train ≤ 03/2024, val 04–09/2024, test 10/2024–04/2025 → 3.169 / 1.784 / 1.188 P); lấy mẫu U (EOA ngẫu nhiên cùng tháng, k × số P); xin GVHD đồng ý cập nhật nguồn nhãn trong đề cương. |
 
 ---
 
@@ -43,7 +48,9 @@ ethereum-phishing-detection-thesis/
 │   ├── raw/                              # Dữ liệu gốc từ paper SIGMETRICS 2025
 │   │   ├── phishing_contracts.log        # 37,654 địa chỉ hợp đồng lừa đảo
 │   │   ├── phishing_transactions.log     # 211,319 mã băm giao dịch lừa đảo
-│   │   └── suspicious_keywords.log       # 35 từ khóa hàm lừa đảo phổ biến
+│   │   ├── suspicious_keywords.log       # 35 từ khóa hàm lừa đảo phổ biến
+│   │   └── daas/                         # Clone repo DaaS_dataset (IMC 2025), không commit
+│   ├── interim/                          # Đầu ra trung gian (không commit): view2/, view2_pilot/, daas_*.csv, daas_accounts/
 │   ├── cache/                            # Bộ đệm JSON thô từ Etherscan API V2
 │   │   ├── blocks/                       # Cache JSON các khối đã truy vấn
 │   │   ├── receipts/                     # Cache JSON các transaction receipts
@@ -66,7 +73,8 @@ ethereum-phishing-detection-thesis/
 │   │   │   ├── view1_metadata_pilot.csv         # Phiên bản CSV của metadata
 │   │   │   ├── view1_precreation_audit_pilot.csv# Kiểm toán 4 bản ghi tiền triển khai (CREATE2)
 │   │   │   └── backup_v1/                       # Bản sao lưu kết quả View 1 ban đầu
-│   │   ├── view2/                        # Temporal Transaction Sequences
+│   │   ├── view2/                        # Temporal Transaction Sequences (Pilot 20, cấp hợp đồng)
+│   │   ├── view2_pilot/                  # View 2 dựng offline từ dữ liệu pilot cũ
 │   │   └── view3/                        # Multi-relational Ego-Graph
 │   └── full/                             # Dữ liệu thu thập diện rộng sau này (400+ địa chỉ)
 │
@@ -75,6 +83,7 @@ ethereum-phishing-detection-thesis/
 │   ├── three_views_spec.md               # Đặc tả chi tiết toán học và schema 3 View
 │   ├── view1_feature_spec.md             # Đặc tả toán học 32 đặc trưng View 1 & NOT_AVAILABLE
 │   ├── VIEW1_PIPELINE_VI.md              # Tài liệu trực quan giải thích pipeline View 1 phục vụ seminar
+│   ├── ACCOUNT_LEVEL_DAAS_VI.md          # Chuyển sang cấp tài khoản với DaaS: dữ liệu, kết quả, quyết định chờ chốt
 │   ├── data_collection_plan.md           # Kế hoạch thu thập dữ liệu on-chain
 │   ├── README_PILOT_VI.md                # Hướng dẫn chi tiết dòng lệnh PowerShell
 │   └── README_NEXT_STEPS_VI.md           # Kế hoạch triển khai pilot 10 Unlabeled
@@ -98,12 +107,15 @@ ethereum-phishing-detection-thesis/
 │   ├── __init__.py                       # Khai báo package src
 │   ├── collect_etherscan.py              # Pipeline thu thập dữ liệu Etherscan API V2
 │   ├── sample_unlabeled.py               # Module Matched Block Sampling & Point-in-Time Cutoff
-│   └── build_view1.py                    # Pipeline trích xuất đặc trưng thống kê View 1 (Đã chuẩn hóa EVM)
+│   ├── build_view1.py                    # Pipeline trích xuất đặc trưng thống kê View 1 (Đã chuẩn hóa EVM)
+│   ├── view2/                            # Pipeline View 2: etherscan_client, check_client, collect_events, build_sequences, adapt_pilot
+│   └── daas/                             # Dữ liệu cấp tài khoản: collect_account_events (lịch sử giao dịch + evidence_time)
 │
 └── tests/                                # Bộ kiểm thử tự động
     ├── test_data_integrity.py            # Kiểm thử toàn vẹn dữ liệu & cutoff (6/6 PASSED)
     ├── test_cache_resume.py              # Kiểm thử cơ chế cache & resume 20 địa chỉ (3/3 PASSED)
-    └── test_view1.py                     # Kiểm thử 12 tiêu chí khoa học & ngữ nghĩa EVM View 1 (12/12 PASSED)
+    ├── test_view1.py                     # Kiểm thử 12 tiêu chí khoa học & ngữ nghĩa EVM View 1 (12/12 PASSED)
+    └── test_view2_pipeline.py            # 12 test bất biến của pipeline View 2 (12/12 PASSED)
 ```
 
 ---
@@ -130,11 +142,36 @@ ethereum-phishing-detection-thesis/
 
 ---
 
+## 3.1 Kết Quả View 2 Cấp Hợp Đồng & Dữ Liệu Cấp Tài Khoản (DaaS)
+
+1. **View 2 cấp hợp đồng (Pilot 20, dữ liệu API):**
+
+   | label_status | n | min | median | mean | max | có sự kiện trước deploy |
+   |---|---|---|---|---|---|---|
+   | positive | 10 | 1 | 1.0 | 1.4 | 2 | 4 |
+   | unlabeled | 10 | 1 | 2.0 | 221.5 | 2135 | 0 |
+
+   Hợp đồng phishing gần như dùng một lần, nên không có động thái theo thời gian để mô hình chuỗi học. Đây là cơ sở thực nghiệm cho việc chuyển sang cấp tài khoản.
+2. **DaaS dataset:** 56 operator + 6.087 affiliate (6.141 EOA), 1.910 profit-sharing contract, 87.077 profit-sharing transaction; giai đoạn 03/2023 – 04/2025.
+3. **`evidence_time` của 6.141 EOA (lần đầu tham gia chia lợi nhuận):** tìm được 100%.
+
+   | Số giao dịch trước `evidence_time` | 0 | 1–2 | 3–9 | 10–99 | 100+ |
+   |---|---|---|---|---|---|
+   | Số tài khoản | 3.225 | 1.006 | 838 | 901 | 171 |
+
+   Trong 24 giờ đầu kể từ `evidence_time`: trung vị 3 giao dịch, P90 19.
+4. **Phân phối `evidence_time` theo tháng:** tăng dần từ 03/2023, đỉnh 03/2024 (460), giảm từ 01/2025. Tỉ lệ tích lũy: 51,6% đến hết 03/2024; 80,7% đến hết 09/2024.
+
+Chi tiết và đoạn mã tái lập: [`docs/ACCOUNT_LEVEL_DAAS_VI.md`](docs/ACCOUNT_LEVEL_DAAS_VI.md).
+
+---
+
 ## 4. Các Bước Tiếp Theo (Chờ Người Dùng Phê Duyệt)
 
-1. **Nghiệm thu chất lượng dữ liệu View 1 Pilot 20 hợp đồng:**
-   - Đánh giá báo cáo [view1_data_quality.md](file:///d:/KH%C3%93A%20LU%E1%BA%ACN/phishing_contract_sigmetrics25/reports/pilot/view1_data_quality.md) và tài liệu toán học [view1_feature_spec.md](file:///d:/KH%C3%93A%20LU%E1%BA%ACN/phishing_contract_sigmetrics25/docs/view1_feature_spec.md).
-2. **Xin ý kiến mở rộng quy mô lên 400 địa chỉ (200 Positive + 200 Unlabeled):**
-   - Áp dụng pipeline thu thập `src/sample_unlabeled.py` và trích xuất `src/build_view1.py` trên tập 400 địa chỉ.
-3. **Triển khai View 2 (Temporal Sequence) & View 3 (Ego-Graph):**
-   - Tuân thủ cùng nguyên tắc Temporal Cutoff 7 ngày và phân tách sự kiện/tài sản.
+1. **Chốt với GVHD:**
+   - Chuyển bài toán sang cấp tài khoản và cập nhật nguồn nhãn trong đề cương (DaaS + SIGMETRICS; XBlock-ETH chỉ để tái hiện baseline).
+   - Thiết lập t\* chính: `evidence_time` + 1 ngày ("phát hiện sau lần nhận tiền lừa đầu tiên"), kèm ablation bỏ giao dịch chia lợi nhuận, và phân tích phụ Δ = 0 trên 1.910 P có ≥ 3 giao dịch trước `evidence_time`.
+2. **Chốt mốc chia theo tháng của t\*:** đề xuất train ≤ 03/2024, val 04–09/2024, test 10/2024–04/2025.
+3. **Lấy mẫu U:** EOA ngẫu nhiên trên toàn mạng, cùng tháng với P, số U = k × số P mỗi tháng (pilot k = 5; chính thức k = 10). Chọn công cụ: Etherscan (cách lấy theo giao dịch có hiệu chỉnh) hay BigQuery (lấy đều theo địa chỉ).
+4. **Chuyển các đoạn mã khảo sát thành script trong `src/daas/` và viết test** (phân loại EOA, thời điểm tạo profit-sharing contract, làm giàu `accounts.csv`). Sửa `_is_cacheable` để cache kết quả `getcontractcreation` khi cả lô là EOA (`result = None`).
+5. **Dựng 3 View cấp tài khoản** từ cùng tập giao dịch trước t\*: View 2 (chế độ tài khoản của `build_sequences.py`), View 1 (đặc trưng tài khoản theo đề cương), View 3 (ego-graph 1-hop, sau đó 2-hop lấy mẫu).

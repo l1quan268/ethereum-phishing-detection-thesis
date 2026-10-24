@@ -1,3 +1,4 @@
+<!-- File: docs/README_PILOT_VI.md -->
 # Hướng Dẫn Vận Hành Pipeline Thu Thập Dữ Liệu On-Chain (Etherscan API V2)
 
 > **Dự án:** Learning Unified Graph Representations for Ethereum Phishing Detection under Incomplete Labels and Temporal Shifts  

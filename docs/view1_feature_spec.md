@@ -1,3 +1,4 @@
+<!-- File: docs/view1_feature_spec.md -->
 # Đặc Tả Kỹ Thuật & Mô Hình Hóa Toán Học — View 1 Statistical Features
 
 > **Đề tài:** Learning Unified Graph Representations for Ethereum Phishing Detection under Incomplete Labels and Temporal Shifts  

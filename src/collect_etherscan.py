@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# File: src/collect_etherscan.py
 """
 Pipeline thu thap du lieu giao dich Ethereum su dung Etherscan API V2.
 Khoa luan tot nghiep: Learning Unified Graph Representations for Ethereum Phishing Detection

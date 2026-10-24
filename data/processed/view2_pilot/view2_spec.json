@@ -1,0 +1,117 @@
+{
+  "num_features": [
+    "log_eth_in",
+    "log_eth_out",
+    "log_dt",
+    "log_age",
+    "log_gas",
+    "log_n_internal",
+    "log_n_tok_in",
+    "log_n_tok_out",
+    "log_n_tok_distinct",
+    "is_error",
+    "is_pre_deploy",
+    "dt_mask",
+    "gas_known",
+    "order_uncertain"
+  ],
+  "continuous_features": [
+    "log_eth_in",
+    "log_eth_out",
+    "log_dt",
+    "log_age",
+    "log_gas",
+    "log_n_internal",
+    "log_n_tok_in",
+    "log_n_tok_out",
+    "log_n_tok_distinct"
+  ],
+  "binary_features": [
+    "is_error",
+    "is_pre_deploy",
+    "dt_mask",
+    "gas_known",
+    "order_uncertain"
+  ],
+  "conditional_masks": {
+    "log_dt": "dt_mask",
+    "log_gas": "gas_known"
+  },
+  "direction_vocab": {
+    "<pad>": 0,
+    "in": 1,
+    "out": 2,
+    "self": 3,
+    "create": 4,
+    "indirect": 5
+  },
+  "method_vocab": {
+    "<pad>": 0,
+    "<none>": 1,
+    "<unk>": 2,
+    "0x095ea7b3": 3,
+    "0xa9059cbb": 4,
+    "0xaad3ec96": 5,
+    "0x": 6,
+    "0x715018a6": 7,
+    "0x751039fc": 8,
+    "0x8a8c523c": 9,
+    "0x1b55ba3a": 10,
+    "0x2e6ed7ef": 11,
+    "0x70e44c6a": 12,
+    "0x8095d564": 13,
+    "0xa5f7f99d": 14,
+    "0xb645048a": 15,
+    "0xbedf0f4a": 16,
+    "0xc9567bf9": 17,
+    "0xe7ad9fcd": 18,
+    "0xf2fde38b": 19
+  },
+  "method_policy": "keep",
+  "normalizer": {
+    "log_eth_in": {
+      "mean": 0.010568457422330483,
+      "std": 0.04188844363831529
+    },
+    "log_eth_out": {
+      "mean": 1.326101491320969e-05,
+      "std": 0.0006259423797964217
+    },
+    "log_dt": {
+      "mean": 3.1083207993199506,
+      "std": 2.5340552912910406
+    },
+    "log_age": {
+      "mean": 10.184498300334289,
+      "std": 2.322617716113352
+    },
+    "log_gas": {
+      "mean": 10.828119535926566,
+      "std": 0.5092797083662225
+    },
+    "log_n_internal": {
+      "mean": 0.23509164132046595,
+      "std": 0.32815397077551917
+    },
+    "log_n_tok_in": {
+      "mean": 0.3588568175711875,
+      "std": 0.3463558514113233
+    },
+    "log_n_tok_out": {
+      "mean": 0.12065549845547724,
+      "std": 0.2628198418421433
+    },
+    "log_n_tok_distinct": {
+      "mean": 0.4795123160266646,
+      "std": 0.3200633510360037
+    }
+  },
+  "normalizer_fit_split": "all",
+  "max_len": 256,
+  "padding": "left",
+  "window_days": 7,
+  "max_lookback_days": null,
+  "t1": null,
+  "t2": null,
+  "n_duplicates_dropped": 0
+}

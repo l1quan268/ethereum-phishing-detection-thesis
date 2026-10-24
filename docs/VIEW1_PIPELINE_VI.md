@@ -1,3 +1,4 @@
+<!-- File: docs/VIEW1_PIPELINE_VI.md -->
 # Hướng Dẫn Kỹ Thuật Trực Quan: Pipeline Trích Xuất View 1 (Statistical Features)
 
 > **Tài liệu phục vụ Seminar & Báo cáo Tiến độ Khóa luận Tốt nghiệp**
