@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "E:\GitHub\ethereum-phishing-detection-thesis\scripts\run.py", line 121, in main
+    runpy.run_module(a.module, run_name="__main__", alter_sys=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 226, in run_module
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "E:\GitHub\ethereum-phishing-detection-thesis\src\daas\collect_account_events.py", line 30, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

@@ -1,0 +1,77 @@
+vi co su kien truoc evidence_time: 2916/6141  | so su kien: 131015
+
+=== So su kien truoc evidence_time theo loai ===
+role          affiliate  operator     All
+cat                                      
+tao_hop_dong         30        31      61
+goi_ham           23855      6161   30016
+gui_eth           20914       841   21755
+nhan_eth          24059      5033   29092
+gui_token         15131      3612   18743
+nhan_token        19702     11411   31113
+khac                215        20     235
+All              103906     27109  131015
+
+=== Mau hoat dong truoc evidence_time (top 15) ===
+                                                            n_vi   pct
+cat                                                                   
+goi_ham+gui_eth+nhan_eth+gui_token+nhan_token                916  31.4
+nhan_token                                                   806  27.6
+gui_eth+nhan_eth                                             318  10.9
+nhan_eth                                                     187   6.4
+goi_ham+nhan_eth+gui_token+nhan_token                        169   5.8
+nhan_eth+nhan_token                                          137   4.7
+gui_eth+nhan_eth+nhan_token                                   89   3.1
+goi_ham+gui_eth+nhan_eth+gui_token+nhan_token+khac            66   2.3
+goi_ham+gui_eth+nhan_eth                                      64   2.2
+goi_ham+gui_eth+nhan_eth+nhan_token                           43   1.5
+goi_ham+nhan_eth+nhan_token                                   32   1.1
+goi_ham+nhan_eth                                              31   1.1
+tao_hop_dong+goi_ham+gui_eth+nhan_eth+gui_token+nhan_token    13   0.4
+tao_hop_dong+nhan_eth                                          5   0.2
+gui_eth+nhan_eth+gui_token                                     5   0.2
+
+=== Ham vi tu goi truoc evidence_time (top 30 theo so vi) ===
+                                       n_su_kien  n_vi
+fn                                                    
+approve                                     9109   923
+transfer                                    4742   602
+execute                                     3930   527
+swap                                        1640   283
+setApprovalForAll                           1605   278
+withdraw                                     683   244
+takeBidSingle                                323    86
+deposit                                      181    72
+pay                                          192    69
+unoswap                                     1347    59
+call                                         173    59
+transferFrom                                 619    57
+takeBid                                      174    54
+multicall                                    217    54
+uniswapV3Swap                                583    40
+safeTransferFrom                             604    39
+Claim                                         54    36
+bulkExecute                                  173    36
+claim                                         36    29
+matchAdvancedOrders                          106    28
+grantApprovals                                27    27
+swapSimpleMode                               252    26
+0x415565b0                                    91    25
+bridge                                        38    25
+updateAtomicRequest                           38    23
+0x7c025200                                    67    23
+depositWithExpiry                             33    21
+safeExecuteSignaturesWithAutoGasLimit        131    16
+registerProxy                                 17    16
+removeLiquiditySingleToken                    21    15
+
+=== Loai cua su kien DAU TIEN (vi co gap > 0) ===
+              n_vi   pct
+cat                     
+tao_hop_dong     0   0.0
+goi_ham          0   0.0
+gui_eth          1   0.0
+nhan_eth      1305  44.8
+gui_token        0   0.0
+nhan_token    1609  55.2
+khac             1   0.0

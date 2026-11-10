@@ -1,0 +1,42 @@
+{
+  "name": "daas_contract_creation",
+  "module": "scripts.daas.s01_contract_creation",
+  "args": [],
+  "command": "python -m scripts.daas.s01_contract_creation ",
+  "started_utc": "2026-10-28T08:52:25.695214+00:00",
+  "git_commit": "b012964cc5ae065f39731790a30de4b2a8e279ca",
+  "git_branch": "feat/view2-pipeline",
+  "git_dirty": true,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "pyarrow": "26.0.0",
+    "requests": "2.33.1",
+    "python-dotenv": "1.2.2",
+    "pytest": "9.2.0"
+  },
+  "inputs": {
+    "data/raw/daas/profit_sharing_contracts.log": {
+      "exists": true,
+      "bytes": 84040,
+      "sha256": "24d77a36091ada0e9c7fd76352af2fa8af588ec17e04cc5b3f68f56f29407fc4"
+    }
+  },
+  "finished_utc": "2026-10-28T08:56:55.263923+00:00",
+  "duration_s": 269.4,
+  "status": "ok",
+  "outputs": {
+    "data/interim/daas_contract_creation.csv": {
+      "exists": true,
+      "bytes": 219700,
+      "sha256": "52509e7be2c95f0370a6db404c3e3484dc2ee04f4d49d03c5a81308bc3483854"
+    },
+    "reports/daas/s01_contract_creation_by_month.csv": {
+      "exists": true,
+      "bytes": 462,
+      "sha256": "583ae2c5e6f801cf8ae02a2b78f0ca7ecd7158092fcf12d50223ee8f1db8d967"
+    }
+  }
+}

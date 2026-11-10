@@ -1,0 +1,52 @@
+{
+  "name": "daas_account_types",
+  "module": "scripts.daas.s02_account_types",
+  "args": [],
+  "command": "python -m scripts.daas.s02_account_types ",
+  "started_utc": "2026-10-28T14:09:21.372281+00:00",
+  "git_commit": "b012964cc5ae065f39731790a30de4b2a8e279ca",
+  "git_branch": "feat/view2-pipeline",
+  "git_dirty": true,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "pyarrow": "26.0.0",
+    "requests": "2.33.1",
+    "python-dotenv": "1.2.2",
+    "pytest": "9.2.0"
+  },
+  "inputs": {
+    "data/raw/daas/operator_accounts.log": {
+      "exists": true,
+      "bytes": 2464,
+      "sha256": "66febdcc274261fde9b392ae17782349209d42890ca3f6dbacaa82d45c496296"
+    },
+    "data/raw/daas/affiliate_accounts.log": {
+      "exists": true,
+      "bytes": 267828,
+      "sha256": "9fa022024edaaf5223b4e6dcb30d0b3bfe91a0ee43fe648c6859ade3359cd86c"
+    }
+  },
+  "finished_utc": "2026-10-28T14:13:25.080278+00:00",
+  "duration_s": 243.6,
+  "status": "ok",
+  "outputs": {
+    "data/interim/daas_account_types.csv": {
+      "exists": true,
+      "bytes": 388281,
+      "sha256": "c0a103610a332a0c841b736a84ac521a9ab762592ab56ce772a94e10fce5b5d0"
+    },
+    "reports/daas/s02_account_types_summary.csv": {
+      "exists": true,
+      "bytes": 100,
+      "sha256": "28f0bf8102cda3616ab6a5a7013e91bcfa0f481a255de1bb7e1d0bffedfde1b6"
+    },
+    "reports/daas/s02_non_eoa.csv": {
+      "exists": true,
+      "bytes": 194,
+      "sha256": "e10998e6adcdaac54217e69a1c9063f038218e0f0503c45cbe4bfe612b9d8904"
+    }
+  }
+}

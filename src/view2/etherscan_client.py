@@ -1,4 +1,3 @@
-# File: src/view2/etherscan_client.py
 """
 Etherscan API V2 client cho pipeline View 2.
 
@@ -84,7 +83,7 @@ class EtherscanClient:
                     last_err = res
                     time.sleep(backoff + random.uniform(0, 0.5)); backoff *= 2
                     continue
-                if not self._is_cacheable(data):
+                if not self._is_cacheable(data, params.get("action")):
                     raise EtherscanError(f"{params.get('action')}: {str(res)[:200]}")
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text(json.dumps(data), encoding="utf-8")
@@ -95,12 +94,16 @@ class EtherscanClient:
         raise EtherscanError(f"{params.get('action')} that bai sau {self.max_retries} lan: {last_err[:200]}")
 
     @staticmethod
-    def _is_cacheable(data: Dict[str, Any]) -> bool:
+    def _is_cacheable(data: Dict[str, Any], action: Optional[str] = None) -> bool:
         """Chi cache ket qua hop le: status=1, hoac status=0 voi 'No transactions/records found'.
-        Proxy (jsonrpc) tra ve 'result' khong co 'status'."""
+        Proxy (jsonrpc) tra ve 'result' khong co 'status'.
+        getcontractcreation: lo 5 dia chi deu khong phai contract -> status=0, result=None (khong co du lieu,
+        khong phai loi) -> cache de lan chay sau khong goi lai. Loi that (rate limit, sai key) co result la chuoi."""
         if "jsonrpc" in data:
             return "error" not in data
         if str(data.get("status")) == "1":
+            return True
+        if action == "getcontractcreation" and data.get("result") is None:
             return True
         msg = f"{data.get('message', '')} {data.get('result', '')}".lower()
         return "no transactions found" in msg or "no records found" in msg or "no token transfers" in msg

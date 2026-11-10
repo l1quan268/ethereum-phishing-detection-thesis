@@ -1,0 +1,47 @@
+{
+  "name": "daas_first_day_content",
+  "module": "scripts.daas.s07_first_day_content",
+  "args": [],
+  "command": "python -m scripts.daas.s07_first_day_content ",
+  "started_utc": "2026-10-29T08:21:32.045416+00:00",
+  "git_commit": "b012964cc5ae065f39731790a30de4b2a8e279ca",
+  "git_branch": "feat/view2-pipeline",
+  "git_dirty": true,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "pyarrow": "26.0.0",
+    "requests": "2.33.1",
+    "python-dotenv": "1.2.2",
+    "pytest": "9.2.0"
+  },
+  "inputs": {
+    "data/interim/daas_accounts/accounts.csv": {
+      "exists": true,
+      "bytes": 1001482,
+      "sha256": "0551c689ab07bce9f9aabaf2062380115ddee2683b6f85908f95dcf0e9e11cae"
+    },
+    "data/interim/daas_accounts/events.parquet": {
+      "exists": true,
+      "bytes": 130524722,
+      "sha256": "7434670f916aaa535ec7fae66d941b9ab51628a332dcad764e6845b1fad59a5e"
+    }
+  },
+  "finished_utc": "2026-10-29T08:21:34.824366+00:00",
+  "duration_s": 2.6,
+  "status": "ok",
+  "outputs": {
+    "reports/daas/s07_first_day_summary.csv": {
+      "exists": true,
+      "bytes": 268,
+      "sha256": "67f00e397f43cbbc151eb89f1d2e6c5ff729687a595a4b3095c915a7b429b5dc"
+    },
+    "reports/daas/s07_first_day_non_ps_dist.csv": {
+      "exists": true,
+      "bytes": 134,
+      "sha256": "a8978fb012f2e40fa5ac05cae631e4a503b58b4841754e6bfbd672b16ec2bb13"
+    }
+  }
+}

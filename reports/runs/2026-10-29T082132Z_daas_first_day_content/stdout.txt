@@ -1,0 +1,16 @@
+=== 24 gio dau ke tu evidence_time ===
+nhom                       co_lich_su  dung_mot_lan  tat_ca
+n_vi                             2916          3225    6141
+trung_vi_n_ps_day1                1.0           1.0     1.0
+trung_vi_n_non_ps_day1            2.0           1.0     1.0
+p90_n_non_ps_day1                19.0          11.0    15.0
+pct_khong_co_gd_khac_day1        29.6          46.5    38.5
+n_rong_sau_ablation                 0          1499    1499
+pct_rong_sau_ablation             0.0          46.5    24.4
+
+=== So giao dich KHONG phai chia loi nhuan trong 24 gio dau ===
+n_non_ps_day1     0    1    2   3-9   10+   All
+nhom                                           
+co_lich_su      864  365  245   815   627  2916
+dung_mot_lan   1499  442  208   672   404  3225
+All            2363  807  453  1487  1031  6141

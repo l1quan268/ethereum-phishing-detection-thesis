@@ -1,0 +1,20 @@
+=== So GDCLN va thoi gian hoat dong (ngay) moi vi ===
+role             affiliate  operator  tat_ca
+n_vi                  6085        56    6141
+pct_chi_1_GDCLN       22.5       0.0    22.3
+n_ps_p25               2.0     218.5     2.0
+n_ps_p50               4.0     964.5     4.0
+n_ps_p75              12.0    1608.0    13.0
+n_ps_p90              31.0    3149.0    33.0
+span_days_p25         0.01     16.73    0.01
+span_days_p50         8.93     33.28    9.17
+span_days_p75        47.29    106.96   47.77
+span_days_p90       123.08     237.2  123.77
+
+=== Theo Delta: GDCLN con lai SAU t* (con ngan duoc) ===
+delta  pct_GDCLN_con_lai_sau_tstar_gop  trung_vi_pct_con_lai_moi_vi  pct_vi_khong_con_GDCLN_sau_tstar
+    0                            100.0                        100.0                               0.0
+   1h                             95.1                         75.0                              26.2
+   1d                             89.8                         60.0                              33.2
+   7d                             70.7                         20.0                              47.1
+  30d                             38.8                          0.0                              67.7

@@ -1,0 +1,31 @@
+{
+  "name": "daas_source",
+  "module": "scripts.daas.s00_daas_source",
+  "args": [],
+  "command": "python -m scripts.daas.s00_daas_source ",
+  "started_utc": "2026-10-28T08:50:13.152213+00:00",
+  "git_commit": "b012964cc5ae065f39731790a30de4b2a8e279ca",
+  "git_branch": "feat/view2-pipeline",
+  "git_dirty": true,
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "pyarrow": "26.0.0",
+    "requests": "2.33.1",
+    "python-dotenv": "1.2.2",
+    "pytest": "9.2.0"
+  },
+  "inputs": {},
+  "finished_utc": "2026-10-28T08:50:13.734951+00:00",
+  "duration_s": 0.4,
+  "status": "ok",
+  "outputs": {
+    "reports/daas/s00_daas_source.csv": {
+      "exists": true,
+      "bytes": 673,
+      "sha256": "8979af5e96ace06a3ad43d5e016620e556573c92b46045d5045f3a57bdd309db"
+    }
+  }
+}

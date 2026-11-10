@@ -1,0 +1,6 @@
+commit DaaS: fcbd9db28d61b4eb880f9842aaae4614a8189504
+                           file  exists  n_lines  n_unique   bytes                              daas_commit
+          operator_accounts.log    True       56        56    2464 fcbd9db28d61b4eb880f9842aaae4614a8189504
+         affiliate_accounts.log    True     6087      6087  267828 fcbd9db28d61b4eb880f9842aaae4614a8189504
+   profit_sharing_contracts.log    True     1910      1910   84040 fcbd9db28d61b4eb880f9842aaae4614a8189504
+profit_sharing_transactions.log    True    87077     87077 5921234 fcbd9db28d61b4eb880f9842aaae4614a8189504

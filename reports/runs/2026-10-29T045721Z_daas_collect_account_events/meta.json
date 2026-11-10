@@ -1,0 +1,46 @@
+{
+  "name": "daas_collect_account_events",
+  "module": "src.daas.collect_account_events",
+  "args": [
+    "--sample",
+    "0"
+  ],
+  "command": "python -m src.daas.collect_account_events --sample 0",
+  "started_utc": "2026-10-29T04:57:21.208953+00:00",
+  "git_commit": "b012964cc5ae065f39731790a30de4b2a8e279ca",
+  "git_branch": "feat/view2-pipeline",
+  "git_dirty": true,
+  "python": "3.14.3",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "packages": {
+    "pandas": null,
+    "numpy": null,
+    "pyarrow": null,
+    "requests": null,
+    "python-dotenv": null,
+    "pytest": null
+  },
+  "inputs": {
+    "data/interim/daas_account_types.csv": {
+      "exists": true,
+      "bytes": 388281,
+      "sha256": "c0a103610a332a0c841b736a84ac521a9ab762592ab56ce772a94e10fce5b5d0"
+    },
+    "data/raw/daas/profit_sharing_transactions.log": {
+      "exists": true,
+      "bytes": 5921234,
+      "sha256": "7fccce916f920081caac6142a56f2f8cd3a2a82520565485b035266b09e49e1e"
+    }
+  },
+  "finished_utc": "2026-10-29T04:57:21.694194+00:00",
+  "duration_s": 0.0,
+  "status": "error: ModuleNotFoundError(\"No module named 'pandas'\")",
+  "outputs": {
+    "data/interim/daas_accounts/accounts.csv": {
+      "exists": false
+    },
+    "data/interim/daas_accounts/events.parquet": {
+      "exists": false
+    }
+  }
+}
